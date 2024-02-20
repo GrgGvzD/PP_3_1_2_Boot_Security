@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Users!!!</title>
+</head>
+<body>
+
+    <table>
+        <thead>
+            <th>id_</th>
+            <th>ИМЯ_</th>
+            <th>ФАМИЛИЯ_</th>
+            <th>Эл.Почта_</th>
+            <th>Имя пользователя_</th>
+            <th>Пароль</th>
+            <th>Роль_</th>
+        </thead>
+        <tbody th:each="user :  ${users}">
+        <tr>
+            <td th:text = ${user.getId()}> defUser</td>
+            <td th:text = ${user.getName()}> defUser</td>
+            <td th:text = ${user.getLastName()}> defUser</td>
+            <td th:text = ${user.getEmail()}> defUser</td>
+            <td th:text = ${user.getUsername()}> defUser</td>
+            <td th:text = ${user.getPassword()}> defUser</td>
+            <td th:text = ${user.getRoles()}> defUser</td>
+            <td>
+<!--            <form th:action="@{/users_controller/edit}" method="get">-->
+                <form th:action="@{/admin/edit}" method="get">
+                <input type="hidden" th:name="id" th:value="${user.getId()}"/>
+                <button type="submit" >Изменить</button>
+            </form>
+            </td>
+            <td>
+                <form th:action="@{/admin}" method="post">
+                    <input type="hidden" th:name="id" th:value="${user.getId()}"/>
+                    <button type="submit" >Изменить</button>
+                </form>
+            </td>
+            <td>
+<!--                <form th:action="@{/users_controller/del_user}" method="post">-->
+<!--                <form th:action="@{/del_user}" method="post">-->
+<!--                    <input type="hidden" th:name="id" th:value="${user.getId()}"/>-->
+<!--                    <button type="submit">Удалить</button>-->
+<!--                </form>-->
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+<br>
+<hr/>
+
+<!--<a href="/users_controller/new" >Add new!</a>-->
+    <a href="/new" >Add new!</a>
+</body>
+</html>
