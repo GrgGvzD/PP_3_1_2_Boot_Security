@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org" >
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Users!!!</title>
@@ -32,23 +32,26 @@
                 <button type="submit" >Изменить</button>
             </form>
             </td>
-            <td>
+<!--            <td>-->
+<!--                <form th:action="@{/admin}" method="post">-->
+<!--                    <input type="hidden" th:name="id" th:value="${user.getId()}"/>-->
+<!--                    <button type="submit" >Изменить</button>-->
+<!--                </form>-->
+<!--            </td>-->
+<!--            <td>-->
+<!--                <form th:action="@{/users_controller/del_user}" method="post">-->
                 <form th:action="@{/admin}" method="post">
                     <input type="hidden" th:name="id" th:value="${user.getId()}"/>
-                    <button type="submit" >Изменить</button>
+                    <button type="submit">Удалить</button>
                 </form>
-            </td>
-            <td>
-<!--                <form th:action="@{/users_controller/del_user}" method="post">-->
-<!--                <form th:action="@{/del_user}" method="post">-->
-<!--                    <input type="hidden" th:name="id" th:value="${user.getId()}"/>-->
-<!--                    <button type="submit">Удалить</button>-->
-<!--                </form>-->
             </td>
         </tr>
         </tbody>
     </table>
-
+<br>
+    <form th:action="@{/logout}" th:method="post">
+        <button type="submit" >Logout</button>
+    </form>
 
 <br>
 <hr/>
